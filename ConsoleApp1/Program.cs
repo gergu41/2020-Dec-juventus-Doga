@@ -33,10 +33,24 @@ namespace ConsoleApp1
             F06();
             F07();
             F08();
-
+            BF();
 
             Console.ReadKey();
     }
+
+        private static void BF()
+        {
+            Console.WriteLine("Adj meg egy mezszámot: ");
+            int x = Convert.ToInt32(Console.ReadLine());
+            foreach (var j in juventus)
+            { 
+            if(j.mez==x)
+                {
+                    Console.WriteLine(j.nev);
+                }
+            }
+        }
+
         private static void F08()
         {
             var dic = new Dictionary<int, int>();
