@@ -15,7 +15,7 @@ namespace ConsoleApp1
             public string nev;
             public string Nemzet;
             public string Poszt;
-            public int szul;
+          //  public int szul;
             public int ev;
         }
         static List<jatekos> juventus;
@@ -34,9 +34,31 @@ namespace ConsoleApp1
             F07();
             F08();
             BF();
+            CF();
 
             Console.ReadKey();
     }
+
+        private static void CF()
+        {
+            FileStream fs = new FileStream(@"..\..\CF\hatvedek.txt", FileMode.Create, FileAccess.Write, FileShare.None);
+            StreamWriter sw = new StreamWriter(fs);
+
+
+            foreach (var j in juventus)
+            {
+               if(j.Poszt=="hátvéd")
+                {
+                    
+                    sw.Write(j.nev + " " + j.ev);
+                    sw.Write("\n");
+
+                }
+            }
+
+            sw.Close();
+            fs.Close();
+        }
 
         private static void BF()
         {
@@ -49,6 +71,7 @@ namespace ConsoleApp1
                     Console.WriteLine(j.nev);
                 }
             }
+            Console.WriteLine("");
         }
 
         private static void F08()
